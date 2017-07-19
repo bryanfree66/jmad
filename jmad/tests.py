@@ -8,19 +8,25 @@ class StudentTestCase(LiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(2)
 
+    def tearDown(self):
+        self.browser.quit()
+
     def test_student_find_solos(self):
         """
         Test that a user can search for solos
         """
 
-        self.fail('Incomplete Test')
-
         # Steve is a jazz student who would like to find more
         # examples of solos so he can improve his own
         # improvisation. He visits the home page of JMAD
+        home_page = self.browser.get(self.live_server_url + '/')
 
         # he knows he is in the right place because he can see
         # the name of the site in the heading
+        brand_element = self.browser.find_element_by_css_selector('.navbar_brand')
+        self.assertEqual('JMAD', brand_element.text)
+
+        self.fail('Incomplete Test')
 
         # he sees the inputs of the search form, including
         # labels and placeholders.
