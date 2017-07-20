@@ -23,7 +23,7 @@ class StudentTestCase(LiveServerTestCase):
 
         # he knows he is in the right place because he can see
         # the name of the site in the heading
-        brand_element = self.browser.find_element_by_css_selector('.navbar_brand')
+        brand_element = self.browser.find_element_by_css_selector('.navbar-brand')
         self.assertEqual('JMAD', brand_element.text)
 
         self.fail('Incomplete Test')
